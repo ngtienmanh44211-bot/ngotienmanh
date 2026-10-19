@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Hệ Thống Ôn Tập Toán - Lý - Hóa (10 - 12)</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #f4f7f6;
+      color: #333;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .container {
+      max-width: 850px;
+      width: 100%;
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      overflow: hidden;
+    }
+
+    .header {
+      background: linear-gradient(135deg, #0f4c81, #1e3c72);
+      color: white;
+      padding: 25px 30px;
+      text-align: center;
+    }
+
+    .header h1 {
+      font-size: 22px;
+      margin-bottom: 15px;
+    }
+
+    .filter-group {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .filter-group select {
+      padding: 8px 15px;
+      border-radius: 6px;
+      border: none;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      outline: none;
+    }
+
+    .content-body {
+      padding: 30px;
+    }
+
+    .section-title {
+      font-size: 18px;
+      color: #0f4c81;
+      border-bottom: 2px solid #eef2f5;
+      padding-bottom: 8px;
+      margin-bottom: 15px;
+      margin-top: 20px;
+    }
+
+    .section-title:first-child {
+      margin-top: 0;
+    }
+
+    .theory-box, .formula-box, .note-box {
+      background: #f8f9fa;
+      border-left: 4px solid #0f4c81;
+      padding: 15px;
+      border-radius: 6px;
+      margin-bottom: 15px;
+      font-size: 14px;
+    }
+
+    .formula-box {
+      border-left-color: #2b8a3e;
+      background-color: #ebfbee;
+      font-weight: bold;
+      color: #2b8a3e;
+      text-align: center;
+      font-size: 16px;
+    }
+
+    .note-box {
+      border-left-color: #f59f00;
+      background-color: #fff9db;
+      color: #664d03;
+    }
+
+    .add-section {
+      background: #f1f3f5;
+      padding: 20px;
+      border-radius: 8px;
+      margin-top: 25px;
+    }
+
+    .add-section h3 {
+      font-size: 16px;
+      margin-bottom: 12px;
+      color: #495057;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 12px;
+      border: 1px solid #ced4da;
+      border-radius: 6px;
+      font-size: 14px;
+      outline: none;
+    }
+
+    textarea.form-control {
+      resize: vertical;
+      height: 90px;
+    }
+
+    .btn-submit {
+      background-color: #0f4c81;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 14px;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .btn-submit:hover {
+      background-color: #0c385f;
+    }
+
+    .pt-wrap { overflow-x: auto; margin-bottom: 12px; padding-bottom: 6px; }
+    .pt-grid { display: grid; grid-template-columns: repeat(18, minmax(38px, 1fr)); grid-template-rows: repeat(7, auto) 10px auto auto; gap: 3px; min-width: 720px; }
+    .el { border-radius: 4px; text-align: center; padding: 3px 0; cursor: pointer; color: #222; line-height: 1.15; }
+    .el small { display: block; font-size: 8px; opacity: 0.7; }
+    .el b { font-size: 13px; }
+    .el.ph { font-size: 8px; cursor: default; display: flex; align-items: center; justify-content: center; }
+    .c-alk { background: #ffb3b3; } .c-alkE { background: #ffd9a8; } .c-tr { background: #ffe69a; }
+    .c-post { background: #d4e8a8; } .c-meta { background: #a8e6cf; } .c-non { background: #a8d8ff; }
+    .c-hal { background: #c9b8ff; } .c-noble { background: #f2b8e6; } .c-lan { background: #ffc9de; } .c-act { background: #e0c9b8; }
+    .legend { display: flex; flex-wrap: wrap; gap: 8px 14px; font-size: 12px; color: #495057; }
+    .legend i { display: inline-block; width: 12px; height: 12px; border-radius: 3px; margin-right: 4px; vertical-align: -2px; }
+    .fline {
+      margin-top: 6px;
+      padding: 6px 10px;
+      background: #ebfbee;
+      border-left: 3px solid #2b8a3e;
+      border-radius: 4px;
+      color: #1f6b2e;
+      font-weight: 600;
+      font-size: 14px;
+      overflow-wrap: anywhere;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 15px;
+      background: #f8f9fa;
+      border-top: 1px solid #eee;
+      font-size: 13px;
+      color: #6c757d;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="header">
+      <h1>Sổ Tay Ôn Tập Kiến Thức THPT (Toán - Lý - Hóa)</h1>
+      <div class="filter-group">
+        <select id="subjectSelect" onchange="updateContent()">
+          <option value="toan">📐 Môn Toán</option>
+          <option value="ly">⚡ Môn Vật Lý</option>
+          <option value="hoa">🧪 Môn Hóa Học</option>
+        </select>
+
+        <select id="gradeSelect" onchange="updateContent()">
+          <option value="10">Lớp 10</option>
+          <option value="11">Lớp 11</option>
+          <option value="12">Lớp 12</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="content-body" id="displayArea"></div>
+
+    <div class="content-body" style="padding-top: 0;">
+      <div class="add-section">
+        <h3>✏️ Thêm ghi chú / công thức của riêng bạn</h3>
+        <input type="text" id="customTitle" class="form-control" placeholder="Tiêu đề nội dung...">
+        <textarea id="customContent" class="form-control" placeholder="Nhập công thức, chú thích..."></textarea>
+        <button class="btn-submit" onclick="addCustomNote()">Lưu vào sổ tay</button>
+      </div>
+      <div id="customNotesList" style="margin-top: 15px;"></div>
+    </div>
+
+    <div class="footer">
+      <p>Học tập thông minh - Chinh phục mọi kỳ thi! 🚀</p>
+    </div>
+  </div>
+
+  <script>
+    const database = {
+      toan_10: {
+        title: "Toán Lớp 10 - Đại số & Hình học",
+        theory: "Mệnh đề, Tập hợp, Bất phương trình bậc nhất hai ẩn, Hệ thức lượng trong tam giác và Vectơ.",
+        formula: "Định lý cosin: a² = b² + c² − 2bc·cos(A)",
+        formulas: [
+          ["Hệ thức lượng trong tam giác", ["a² = b² + c² − 2bc·cosA", "a/sinA = b/sinB = c/sinC = 2R"]]
+        ],
+        note: "Cần nắm vững cách xác định miền nghiệm của bất phương trình và các tính chất của vectơ."
+      },
+      ly_10: {
+        title: "Vật Lý Lớp 10 - Động học & Động lực học",
+        theory: "Chuyển động thẳng biến đổi đều, Các định luật Newton, Ba định luật bảo toàn.",
+        formula: "Độ dịch chuyển: d = v₀·t + ½·a·t²",
+        note: "Đổi mọi đại lượng về hệ SI trước khi thay số."
+      },
+      hoa_10: {
+        title: "Hóa Học Lớp 10 - Cấu tạo nguyên tử & BTH",
+        theory: "Cấu phần nguyên tử (p, n, e), Đồng vị, Bảng tuần hoàn các nguyên tố hóa học.",
+        formula: "Số khối: A = Z + N",
+        note: "Ghi nhớ cấu hình electron từ Z = 1 đến Z = 20."
+      }
+    };
+
+    function renderFormulas(groups) {
+      return groups.map(g => `<div class="theory-box"><strong>📐 ${g[0]}</strong>${g[1].map(f => `<div class="fline">${f}</div>`).join('')}</div>`).join('');
+    }
+
+    function updateContent() {
+      const subject = document.getElementById('subjectSelect').value;
+      const grade = document.getElementById('gradeSelect').value;
+      const data = database[subject + '_' + grade] || {
+        title: "Nội dung đang cập nhật",
+        theory: "Hệ thống kiến thức cho phần này đang được cập nhật thêm.",
+        formula: "Đang cập nhật...",
+        note: "Bạn có thể tự thêm ghi chú ở khung bên dưới."
+      };
+
+      document.getElementById('displayArea').innerHTML = `
+        <h2 class="section-title">📚 ${data.title}</h2>
+        <div class="theory-box">
+          <strong>Lý thuyết trọng tâm:</strong>
+          <p style="margin-top: 5px;">${data.theory}</p>
+        </div>
+        ${data.formulas ? renderFormulas(data.formulas) : `<div class="formula-box">✨ Công thức cốt lõi: ${data.formula}</div>`}
+        <div class="note-box">💡 Lưu ý quan trọng: ${data.note}</div>
+      `;
+    }
+
+    function addCustomNote() {
+      const title = document.getElementById('customTitle').value.trim();
+      const content = document.getElementById('customContent').value.trim();
+      if (!title || !content) return alert('Vui lòng điền đầy đủ tiêu đề và nội dung!');
+      
+      const list = document.getElementById('customNotesList');
+      list.innerHTML += `<div class="theory-box" style="border-left-color:#2b8a3e"><strong>📌 ${title}</strong><p style="margin-top:5px;">${content}</p></div>`;
+      
+      document.getElementById('customTitle').value = '';
+      document.getElementById('customContent').value = '';
+    }
+
+    window.onload = updateContent;
+  </script>
+</body>
+</html>
